@@ -1,0 +1,23 @@
+Step 1: Create a new database (Inventory).
+
+Step 2: For this web api  Inventory Service I created two tables Products and UserInfo with basic attributes.
+
+Create Table Products(
+ProductId Int Identity(1,1) Primary Key,
+Name Varchar(100) Not Null,
+Category Varchar(100),
+Color Varchar(20),
+UnitPrice Decimal Not Null,
+AvailableQuantity Int Not Null)
+GO
+CREATE TABLE [dbo].[UserInfo](
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [varchar](30) NOT NULL,
+	[LastName] [varchar](30) NOT NULL,
+	[UserName] [varchar](30) NULL,
+	[Email] [varchar](50) NOT NULL,
+  [Password] [varchar](20) NULL,
+	[MobileNo] [varchar](50) NULL,
+GO
+Insert Into UserInfo(FirstName, LastName, UserName, Email, Password, MobileNo) 
+Values ('Inventory', 'Admin', 'InventoryAdmin', 'InventoryAdmin@abc.com', '$admin@2017','9444321121')
