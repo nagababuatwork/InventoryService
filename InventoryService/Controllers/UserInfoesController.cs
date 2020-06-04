@@ -42,7 +42,6 @@ namespace InventoryService.Controllers
         [HttpPut("UpdateUserDetails/{Id}")]
         public async Task<IActionResult> PutUserInfo(UserInfo userInfo, int id)
         {
-            userInfo.CreatedDate = DateTime.Now;
             if (id != userInfo.UserId)
             {
                 return BadRequest();
@@ -79,7 +78,6 @@ namespace InventoryService.Controllers
                                    }).FirstOrDefault();
             if (checkUserExists == null)
             {
-                userInfo.CreatedDate = DateTime.Now;
                 _context.UserInfo.Add(userInfo);
                 await _context.SaveChangesAsync();
                 return CreatedAtAction("GetUserInfo", new { id = userInfo.UserId }, userInfo);

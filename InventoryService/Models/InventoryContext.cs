@@ -38,14 +38,6 @@ namespace InventoryService.Models
             modelBuilder.Entity<UserInfo>(entity =>
             {
                 entity.HasKey(e => e.UserId);
-                
-                entity.Property(e => e.Address)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
@@ -69,10 +61,6 @@ namespace InventoryService.Models
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PinCode)
-                    .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.UserName)
